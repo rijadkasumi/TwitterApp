@@ -1,0 +1,12 @@
+Target dependency graph (5 targets)
+AFNetworking in Pods
+Alamofire in Pods
+AlamofireImage in Pods, depends on:
+Alamofire in Pods (explicit)
+BDBOAuth1Manager in Pods, depends on:
+AFNetworking in Pods (explicit)
+Pods-Twitter in Pods, depends on:
+AFNetworking in Pods (explicit)
+Alamofire in Pods (explicit)
+AlamofireImage in Pods (explicit)
+BDBOAuth1Manager in Pods (explicit)

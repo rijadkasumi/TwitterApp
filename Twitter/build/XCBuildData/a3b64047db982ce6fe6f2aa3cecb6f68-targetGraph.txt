@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Alamofire in Pods
+AlamofireImage in Pods, depends on:
+Alamofire in Pods (explicit)
