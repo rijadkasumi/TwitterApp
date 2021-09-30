@@ -25,13 +25,13 @@ class HomeTableViewController: UITableViewController {
         
        
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweets()
+        
+    }
      @objc func loadTweets(){
-        
-         
          numberOfTweet = 20
-         
-        
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count": 20,]
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams , success: { (tweets: [NSDictionary]) in
@@ -42,6 +42,9 @@ class HomeTableViewController: UITableViewController {
             }
             self.tableView.reloadData()
             self.myRefreshControl.endRefreshing()
+            
+            self.tableView.rowHeight = UITableView.automaticDimension
+            self.tableView.estimatedRowHeight = 15
 
         }, failure: { (Error) in
             
@@ -106,6 +109,9 @@ class HomeTableViewController: UITableViewController {
             
         }
         
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
         
         return cell
         
